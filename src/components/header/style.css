@@ -20,7 +20,7 @@ ul {
     list-style: none;
     color:black;
 }
-header{
+.nav{
     background-color: rgb(151, 194, 180);
     box-shadow: 1px 1px 5px 0 white;
     position: sticky;
