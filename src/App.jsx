@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react';
 import './App.css'
-import Header from './components/navbar'
-import Card from './components/producto';
+import Header from './components/navbar/Item'
+import Card from './components/catalogo/ItemListContainer';
+import Details from './components/detalle/ItemDetails.Container';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
+
+  const [showDetails, setShowDetails] = useState(false);
+  const [productDetails, setProductDetail] = useState(null);
+
+  const onShowDetails = (id) =>{
+    setShowDetails(true);
+    const findProduct = products.find((product) => product.id===id);
+    setProductDetail(findProduct);
+  }
 
 //ciclos de vida, promises, asincronía
 
@@ -35,20 +45,31 @@ console.log({products});
   return (
     <div>
       <Header logo="Tienda Shops"/>
-      <div className='card-container'>
+      <div className='inputContainer'>
+      {showDetails ?(
+        <>
+         <Details {...productDetails}/>
+          </>
+          ) : (
+            <div className='card-container'>
       {
       products.map((product) => (
-        <Card {...product}/>
+        <Card {...product} onShowDetails={onShowDetails}/>
         )
         )
       }
       //routing y navegación
       <Routes >  
-        <Route path='/' element={<producto />}/>
+        <Route path='/' element={<catalogo />}/>
+        <Route path='/category/:categoryid' element={<Card/>}/>
+        <Route path='/Item/:Itemid' element={<Details/>}/>
+        
       </Routes>
       </div>
+          )}
    
-    </div>
+      </div>
+     </div> 
    
   )
 }
