@@ -1,5 +1,6 @@
-import React from "react"
-import './style.css'
+import React from "react";
+import './style.css';
+import { Link } from "react-router-dom";
 
 const Header = ({ logo, menuItem }) => {
     return (
@@ -11,10 +12,14 @@ const Header = ({ logo, menuItem }) => {
             </label>
             <nav className="nav">
                 <ul className="menu">
+                    <Link to={'/item'}>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Products</a></li>
+                    </Link>
+                   
+                    <Link to={'/category'}>
                     <li><a href="#">Categories</a></li>
-                    <li><a href="#">Contact</a></li>
+                    </Link>
+                   
                 </ul>
             </nav>
         </header>

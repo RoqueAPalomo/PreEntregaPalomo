@@ -61,8 +61,8 @@ console.log({products});
       //routing y navegación
       <Routes >  
         <Route path='/' element={<catalogo />}/>
-        <Route path='/category/:categoryid' element={<Card/>}/>
-        <Route path='/Item/:Itemid' element={<Details/>}/>
+        <Route path='/category/:categoryId' element={<Card/>}/>
+        <Route path='/item/:itemId' element={<productDetails/>}/>
         
       </Routes>
       </div>
